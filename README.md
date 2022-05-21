@@ -1,1 +1,1 @@
-# Shopify_BE_CRUD
+# Shopify Inventory Application
