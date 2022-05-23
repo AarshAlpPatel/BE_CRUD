@@ -28,3 +28,23 @@ $("#update_user").submit(function(event) {
 
 
 })
+
+if (window.location.pathname == '/') {
+    console.log("hello!")
+    $ondelete = $(".table tbody td a.delete")
+    $ondelete.click(function() {
+        var id = $(this).attr("data-id")
+
+        var request = {
+            "url": `http://localhost:3000/api/users/${id}`,
+            "method": "DELETE"
+        }
+
+        if (confirm("Do you really want to delete this item?")) {
+            $.ajax(request).done(function(response){
+                alert("Data deleted successfully!")
+                location.reload()
+            })
+        }
+    })
+}
