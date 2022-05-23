@@ -22,29 +22,29 @@
             <div class="new_item">
                 <div class="form-group">
                     <label for="name" class="text-light">Name</label>
-                    <input type="hidden" name="id" value="">
-                    <input type="text" name="name" value="" placeholder="Jordan 11's">
+                    <input type="hidden" name="id" value="<%= item._id %>">
+                    <input type="text" name="name" value="<%= item.name %>" placeholder="Jordan 11's">
                 </div>
 
                 <div class="form-group">
                     <label for="description" class="text-light">Description</label>
-                    <input type="text" name="description" value="" placeholder="Good Shoe. 10/10!">
+                    <input type="text" name="description" value="<%= item.description %>" placeholder="Good Shoe. 10/10!">
                 </div>
 
                 <div class="form-group">
                     <label for="price" class="text-light">Price</label>
-                    <input type="text" name="name" value="" placeholder="$99.99">
+                    <input type="text" name="price" value="<%= item.price %>" placeholder="$99.99">
                 </div>
 
                 <div class="form-group">
                     <label for="in-stock" class="text-light">In Stock</label>
                     <div class="radio inline">
-                        <input type="radio" id="radio-1" name="in-stock" value="Available">
+                        <input type="radio" id="radio-1" name="stock" value="Available" <%= item.stock == 'Available' ? 'checked' : '' %>>
                         <label for="radio-1" class="radio-label">Available</label>  
                     </div>
 
                     <div class="radio inline">
-                        <input type="radio" id="radio-2" name="in-stock" value="Unavailable">
+                        <input type="radio" id="radio-2" name="stock" value="Unavailable" <%= item.stock == 'Unavailable' ? 'checked' : '' %>>
                         <label for="radio-2" class="radio-label">Unavailable</label>  
                     </div> 
                 </div>
