@@ -21,4 +21,20 @@ var schema = new mongoose.Schema({
 
 const Userdb = mongoose.model('inventoryDB', schema);
 
-module.exports = Userdb;
+var schema2 = new mongoose.Schema({
+    name: {
+        type:String,
+        require:true
+    },
+    location:{
+        type:String,
+        required:true,
+    }
+})
+
+const Warehousedb = mongoose.model('warehouseDB', schema2);
+
+module.exports = {
+    Userdb: Userdb,
+    Warehousedb: Warehousedb
+}

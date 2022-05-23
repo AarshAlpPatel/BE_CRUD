@@ -18,6 +18,10 @@ exports.add_user = (req, res) => {
     res.render('add_user');
 }
 
+exports.add_warehouse = (req, res) => {
+    res.render('add_warehouse');
+}
+
 exports.update_user = (req, res) => {
     axios.get('http://localhost:3000/api/users', {params: {id:req.query.id}})
         .then(function(itemdata) {

@@ -1,4 +1,7 @@
-var Userdb = require('../model/model');
+var object = require('../model/model');
+var Userdb = object.Userdb;
+var Warehousedb = object.Warehousedb;
+//var Warehousedb = require('../model/model');
 
 //create and save new item
 exports.create = (req, res) => {
@@ -27,6 +30,32 @@ exports.create = (req, res) => {
         .catch(err => {
             res.status(500).send({
                 message: err.message || "Some error occured while creating an item"
+            });
+        });
+}
+
+
+exports.createWarehouse = (req, res) => {
+    //validate request
+    if (!req.body) {
+        res.status(400).send({ message: "Content can not be empty!"});
+        return;
+    }
+
+    console.log(req.body)
+    const warehouse = new Warehousedb({
+        name: req.body.name,
+        location: req.body.location
+    })
+
+    warehouse
+        .save(warehouse)
+        .then(data => {
+            res.redirect('/add-warehouse')
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: err.essage || "Some error occured while creating a warehouse"
             });
         });
 }
