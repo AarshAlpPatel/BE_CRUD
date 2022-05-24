@@ -13,6 +13,9 @@ var schema = new mongoose.Schema({
         type:String,
         required:true
     },
+    warehouse:{
+        type:String
+    },
     stock:{
         type:String,
         required:true

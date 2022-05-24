@@ -17,6 +17,7 @@ exports.create = (req, res) => {
         name: req.body.name,
         description: req.body.description,
         price: req.body.price,
+        warehouse: req.body.warehouse,
         stock: req.body.stock
     })
 
@@ -90,6 +91,16 @@ exports.find = (req, res) => {
                 res.status(500).send({message: err.message || "Error occurred while retrieving item information"})
             })
     }
+}
+
+exports.findWarehouse = (req, res) => {
+    Warehousedb.find()
+        .then(warehouse => {
+            res.send(warehouse)
+        })
+        .catch(err => {
+            res.status(500).send({message: err.message || "Error occured while retrieving warehouse information"})
+        })
 }
 
 //update a new identified item by item id

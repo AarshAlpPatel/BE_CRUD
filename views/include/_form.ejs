@@ -18,6 +18,13 @@
         </div>
 
         <div class="form-group">
+            <label for="warehouse" class="text-light">Warehouse</label>
+            <select name="warehouse" id="">
+                <%- include('_dropdown') %>
+            </select>
+        </div>
+
+        <div class="form-group">
             <label for="stock" class="text-light">In Stock</label>
             <div class="radio inline">
                 <input type="radio" id="radio-1" name="stock" value="Available">

@@ -5,6 +5,7 @@
     <td><%= items[i].name %></td>
     <td><%= items[i].description %></td>
     <td><%= items[i].price %></td>
+    <td><%= items[i].warehouse != undefined ? items[i].warehouse : 'N/A'%></td>
     <td><%= items[i].stock %></td>
     <td>
         <a href="/update-user?id=<%= items[i]._id%>" class="btn border-shadow update">
