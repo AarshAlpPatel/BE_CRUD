@@ -62,9 +62,34 @@ exports.add_warehouse = (req, res) => {
 }
 
 exports.update_user = (req, res) => {
+    var warehouseList = null;
+    var itemData = null;
+    axios.get("http://localhost:3000/api/warehouse")
+    .then(function(response){
+        console.log(response.data)
+        warehouseList = response.data
+
+        if (warehouseList != null && itemData != null) {
+            res.render('update_user', { 
+                warehouse: warehouseList,
+                item: itemData
+        });
+        }       
+    })
+    .catch(err => {
+        res.send(err);
+    })
+    
     axios.get('http://localhost:3000/api/users', {params: {id:req.query.id}})
         .then(function(itemdata) {
-            res.render("update_user", {item : itemdata.data})
+            itemData = itemdata.data;
+            
+            if (warehouseList != null && itemData != null) {
+                res.render("update_user", {
+                    item : itemdata.data,
+                    warehouse: warehouseList
+                })
+            }
         })
         .catch(err => {
             res.send(err);
